@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "dockerds"
+version = "0.0.1"
+description = ""
+authors = ["martin <martinmail@mail.ru>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+ipython = "^7.18.1"
+allenai_common = "^1.1.1"
+pyarrow = "^1.0.1"
+ipykernel = "^5.3.4"
+torch = {url = "https://download.pytorch.org/whl/cu101/torch-1.6.0%2Bcu101-cp38-cp38-linux_x86_64.whl"}
+pytorch-forecasting = "^0.5.2"
+wandb = "^0.10.11"
+pandas = "^1.1.5"
+numpy = "*"
+scipy = "*"
+fbprothet = "^0.7.1"
+scikit-learn = "*"
+jupyterlab = "*"
+seaborn = "*"
+plotly = "*"
+plotly-express = "*"
+jsonlines = "^1.2.0"
+pyyaml = "^5.3.1"
+pytest = "^6.0.1"
+tensorboard = "^2.3.0"
+tensorflow = "^2.3.0"
+optuna = "^2.1.0"
+statsmodels = "^0.12.1"
+u8darts = "^0.5.0"
+torchvision = "^0.8.1"
+torchtext = "^0.8.0"
+allennlp = "^1.1.0"
+allennlp_models = "^1.1.0"
+
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
