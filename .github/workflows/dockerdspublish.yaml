@@ -33,7 +33,7 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.actor }}/${{ github.repository }}/ ${{ matrix.dockerfile.name }}
+          IMAGE_ID=ghcr.io/${{ github.actor }}/${{ github.repository }}/${{ matrix.dockerfile.name }}
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
