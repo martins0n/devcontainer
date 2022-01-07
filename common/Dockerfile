@@ -1,4 +1,5 @@
-FROM nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
+ARG BASE_IMAGE="nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04"
+FROM ${BASE_IMAGE}
 
 
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8
@@ -23,11 +24,12 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
 
 RUN mkdir -p /usr/tmp
 WORKDIR /usr/tmp
-COPY dockerds/poetry.lock dockerds/pyproject.toml /usr/tmp/
+COPY poetry.lock pyproject.toml /usr/tmp/
 
 RUN python -m pip install --no-cache-dir poetry \
     && poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --no-dev
+    && poetry install --no-interaction --no-ansi --no-dev \
+    && rm -rf ~/.cache
 
 RUN mkdir -p /usr/src/dev
 WORKDIR /usr/src/dev
